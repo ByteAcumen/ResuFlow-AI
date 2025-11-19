@@ -45,9 +45,9 @@ graph TD
     Backend -->|Publish Upload Event| Kafka[Apache Kafka]
     Backend -->|Query| PG[PostgreSQL]
     Backend -->|Vector Search| VectorDB[Qdrant/Chroma]
-    Backend -->|Chat Generation| Ollama[Ollama (LLM)]
+    Backend -->|Chat Generation| Ollama[Ollama LLM]
     
-    subgraph "Async Worker"
+    subgraph AsyncWorker [Async Worker]
     Worker[Python Worker] -->|Consume Event| Kafka
     Worker -->|Extract Text| PDFLib[PyPDF]
     Worker -->|Generate Embeddings| Ollama
